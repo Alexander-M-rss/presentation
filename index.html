@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Ten Essential Linux commands</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style type="text/css">
+      .command {
+        padding-left: 25px;
+        text-align: left;
+      }
+      .long-command {
+        padding-left: 0px;
+        text-align: left;
+      }
+
+    </style>
+  </head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h2>Ten Essential Linux Commands</h2></section>
+        <section>
+          find
+          <pre class="fragment fade-up command"> $ find . -type f -name 'nameofthefile.ext'</pre>
+          <pre class="fragment fade-up command"> $ find . -type f -perm 0777 -print</pre>
+          <pre class="fragment fade-up command"> $ find /tmp -type d -empty</pre>
+          <pre class="fragment fade-up command"> $ find . -type f -name 'nameofthefile.ext' -ls</pre>
+          <pre class="fragment fade-up command"> $ man find</pre>
+        </section>
+        <section>
+          grep
+          <pre class="fragment fade-up command"> $ grep "literal_string" filename</pre>
+          <pre class="fragment fade-up command"> $ grep "this" demo_*.*</pre>
+          <pre class="fragment fade-up command"> $ grep "sample.*empty" demo_file</pre>
+        </section>
+        <section>
+          sed
+          <pre class="fragment fade-up command"> $ sed -i '' s/test/beta/g /home/username/sample.txt</pre>
+          <pre class="fragment fade-up command"> $ sed -i '1d' /home/username/sample.txt</pre>
+          <pre class="fragment fade-up command"> $ sed -i '4,10d' /home/username/sample.txt</pre>
+          <pre class="fragment fade-up command"> $ sed '/^$/d' /home/username/sample.txt</pre>
+        </section>
+        <section>
+          head
+          <pre class="fragment fade-up command"> $ head -n 6 sample.txt</pre>
+          <pre class="fragment fade-up command"> $ head -c 13 sample.txt</pre>
+          <pre class="fragment fade-up command"> $ head -n -5 sample.txt</pre>
+          <pre class="fragment fade-up command"> $ head -c -30 sample.txt</pre>
+          <pre class="fragment fade-up command"> $ head -n 4 -q *.*</pre>
+        </section>
+        <section>
+          locate
+          <pre class="fragment fade-up command"> $ locate *apache*.txt</pre>
+          <pre class="fragment fade-up command"> $ locate -c *apache*.txt</pre>
+          <pre class="fragment fade-up command"> $ locate -e *apache*.txt</pre>
+          <pre class="fragment fade-up command"> $ locate --regex -i "(\.mp4|\.avi)"</pre>
+        </section>
+        <section>
+          alias
+          <pre class="fragment fade-up command"> $ alias myrs='sudo service mysql restart'</pre>
+          <pre class="fragment fade-up command"> $ unalias myrs='sudo service mysql restart'</pre>
+          <pre class="fragment fade-up command"> $ alias alias-list='cat ~/.bash_aliases'</pre>
+          <pre class="fragment fade-up command"> $ alias alias-edit='nano ~/.bash_aliases'</pre>
+          <pre class="fragment fade-up command"> $ alias ara='cd ~/repo/async-race-api'</pre>
+        </section>
+        <section>
+          tar
+          <pre class="fragment fade-up command"> $ tar -cvf sample-22-08-15.tar /home/sampleuser/</pre>
+          <pre class="fragment fade-up command"> $ tar -cvfz photos-22-08-15.tar.gz /home/user/photos</pre>
+          <pre class="fragment fade-up command"> $ tar -xvf photos-22-08-15.tar.gz</pre>
+          <pre class="fragment fade-up command"> $ tar -xvf photos-22-08-15.tar.gz /home/user/photos</pre>
+        </section>
+        <section>
+          scp
+          <pre class="fragment fade-up long-command"> $ scp mytb.tar.gz user@server.com:/home/user/folder</pre>
+          <pre class="fragment fade-up long-command"> $ scp user@server.com:/home/user/dir ./mytb.tar.gz</pre>
+          <pre class="fragment fade-up long-command"> $ scp -i key.pem mytb.tar.gz user@server.com:/folder</pre>
+        </section>
+        <section>
+          df
+          <pre class="fragment fade-up command"> $ df -T -h</pre>
+          <pre class="fragment fade-up command"> $ df -h -t ext4 --output=source,size,pcent  </pre>
+          <pre class="fragment fade-up command"> $ df -x ext4 -h</pre>
+        </section>
+        <section>
+          lsof
+          <pre class="fragment fade-up command"> $ lsof</pre>
+          <pre class="fragment fade-up command"> $ sudo lsof -u username</pre>
+          <pre class="fragment fade-up command"> $ sudo lsof -i -P -n | grep LISTEN</pre>
+        </section>
+        <section><h2>Thank you for your attention</h2>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
